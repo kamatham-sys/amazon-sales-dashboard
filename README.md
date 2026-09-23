@@ -1,24 +1,26 @@
-Amazon Sales Dashboard (Power BI)
+# Amazon Sales Dashboard (Power BI)
 
 An end-to-end Power BI project analyzing Amazon marketplace sales data — from raw CSV to a cleaned star-schema data model and an interactive dashboard.
 
 <img width="1321" height="738" alt="Screenshot 2026-09-24 000900" src="https://github.com/user-attachments/assets/0df738fb-dc84-455f-a4f6-a79a55d1d6b9" />
 
 
-📊 Project Overview
+**📊 Project Overview**
 
 This project takes a raw, real-world Amazon sales export (~129,000 order rows) and turns it into a clean, analysis-ready data model and dashboard. The focus was on proper dimensional modeling (star schema) rather than working off one flat table — including handling messy real-world issues like inconsistent city/state spellings, mixed data types, and duplicate records.
 
-📁 Dataset
+**📁 Dataset**
 Source: Amazon Sale Report — Kaggle
 Size: ~129,000 rows, 24 original columns
 Period covered: March 31, 2022 – June 29, 2022
 Content: Order-level sales data for an Indian D2C clothing seller on Amazon — includes order status, product details, shipping location, fulfilment type, and order value.
-🛠️ Tools Used
+
+**🛠️ Tools Used**
 Power BI Desktop — data modeling, DAX, dashboard visuals
 Power Query (M) — data cleaning and transformation
 DAX — measures for KPIs (Total Revenue, Total Orders, Average Order Value, etc.)
-🧱 Data Model — Star Schema
+
+**🧱 Data Model — Star Schema**
 
 Instead of using the raw data as a single flat table, the dataset was split into one fact table and four dimension tables:
 
@@ -31,7 +33,7 @@ Dim_Date	Dimension	Date	Day, Month, Month Name, Quarter, Year, Day Name
 
 Relationships: All dimension tables connect to Fact_Amazon_Sales in a 1-to-many relationship (one product/location/fulfilment/date → many order lines).
 
-🧹 Data Cleaning Highlights
+**🧹 Data Cleaning Highlights**
 
 Real-world data is messy — here's what was addressed:
 
@@ -47,7 +49,8 @@ Sales Channel — 99.9% single value ("Amazon.in"), no analytical variation
 ship-country — 100% single value ("IN"), no analytical variation
 ship-city — dropped after data-quality review; thousands of inconsistent spellings with low payoff versus using ship-state for geographic analysis
 Cross-table consistency — ensured cleaned text formatting was applied identically in both Dim_Location and Fact_Amazon_Sales before merging, since Power Query merges require exact-match values.
-📈 Dashboard
+
+**📈 Dashboard**
 
 The dashboard (Overview page) includes:
 
@@ -63,7 +66,8 @@ Total Revenue: ₹70.94M
 Total Quantity: 109K units
 Total Orders: 120K
 Average Order Value: ₹589.43
-📂 Repository Structure
+
+**📂 Repository Structure**
 ├── Amazon_Sales_Dashboard.pbix     # Main Power BI file
 ├── data/
 │   └── Amazon_Sale_Report.csv      # Raw source data
@@ -71,10 +75,12 @@ Average Order Value: ₹589.43
 │   └── overview.png                # Dashboard screenshot(s)
 ├── README.md
 └── DOCUMENTATION.md                # Detailed data modeling & cleaning steps
-🚀 How to Use
+
+**🚀 How to Use**
 Clone or download this repository
 Open Amazon_Sales_Dashboard.pbix in Power BI Desktop
 If prompted, update the data source path to point to data/Amazon_Sale_Report.csv on your machine
-📖 Further Details
+
+**📖 Further Details**
 
 See DOCUMENTATION.md for a full breakdown of the Power Query transformation steps, column-by-column decisions, and modeling rationale.
