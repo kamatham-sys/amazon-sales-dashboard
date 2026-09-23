@@ -283,6 +283,9 @@ see **[DOCUMENTATION.md](DOCUMENTATION.md)**.
 
 ---
 
+
+> **Note:** The complete raw dataset is not included in this repository due to its file size. A 1,000-row representative sample is provided in `data/sample_amazon_sales.csv`. The Power BI report was developed using the complete original dataset.
+
 ## 🎯 Key Takeaways
 
 This project demonstrates an end-to-end Power BI workflow involving:
